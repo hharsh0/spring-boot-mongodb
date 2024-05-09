@@ -28,4 +28,14 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @DeleteMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable String userId){
+        if(userService.isExist(userId)){
+            userService.deleteUser(userId);
+            return "User with user id: "+userId+" is deleted";
+        }else{
+            return "User with user id"+userId+" is not found";
+        }
+    }
+
 }

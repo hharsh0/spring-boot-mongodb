@@ -12,6 +12,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public Boolean isExist(String id){
+        return userRepository.existsById(id);
+    }
+
     public User saveUser(User user){
         return userRepository.save(user);
     }
